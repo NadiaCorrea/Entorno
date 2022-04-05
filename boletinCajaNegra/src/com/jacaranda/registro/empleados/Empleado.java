@@ -85,4 +85,10 @@ public class Empleado {
 		return Objects.equals(nombreEmpleado, other.nombreEmpleado) && numEmpleado == other.numEmpleado;
 	}
 
+	@Override
+	public String toString() {
+		return "Empleado [numEmpleado=" + numEmpleado + ", nombreEmpleado=" + nombreEmpleado + ", mesesTrabajo="
+				+ mesesTrabajo + ", directivo=" + directivo + "]";
+	}
+
 }

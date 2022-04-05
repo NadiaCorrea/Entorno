@@ -4,15 +4,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Registro {
-	private String prima;
 	private Empleado empleado;
-	List<Empleado> empleados;
+	private String prima;
+	List<Empleado> empleados = new LinkedList<>();
 
 	public Registro(Empleado empleado) {
 		super();
-		setPrima();
 		this.empleado = empleado;
-		this.empleados = new LinkedList<>();
+		setPrima();
 	}
 
 	public String getPrima() {
@@ -39,6 +38,11 @@ public class Registro {
 
 	public List<Empleado> getEmpleados() {
 		return empleados;
+	}
+
+	@Override
+	public String toString() {
+		return "Registro [empleado=" + empleado + ", prima=" + prima + "]";
 	}
 
 }
