@@ -1,5 +1,6 @@
 package com.jacaranda.main.registro;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,38 +17,64 @@ public class MainRegistro {
 		Registro reg3;
 		Registro reg4;
 		Registro reg5;
+		Registro reg6;
 
 		try {
-//			reg1 = new Registro(000, "JuanFrank", 12, '+');
-//			reg1 = new Registro(1000, "JuanFrank", 12, '+');
-			reg2 = new Registro(998, "Loudovicoo", 13, '+');
+			reg1 = new Registro(998, "Loudovicoo", 13, '+');
+			registros.add(reg1);
+			reg2 = new Registro(999, "Carla Sanz", 15, '-');
 			registros.add(reg2);
-//			reg3 = new Registro(999, "Loudovicoos", 13, '-');
-			System.out.println(asignarPrima(reg2));
-//			reg4 = new Registro(999, "Loudovicoos", 13, '-');
-		} catch (RegistroException e) {
+			reg3 = new Registro(8, "Loudo Vico", 11, '+');
+			registros.add(reg3);
+			reg4 = new Registro(8, "Laura Vera", 1, '-');
+			registros.add(reg4);
+			System.out.println(asignarPrimas(registros));
 
-			System.out.println("No se puedo crear el resgistro" + e.getMessage());
+		} catch (RegistroException e) {
+			System.out.println("No se puedo crear el registro. " + e.getMessage());
+		}
+
+		try {
+			reg5 = new Registro(0, "JuanFrank", 12, '+');
+		} catch (RegistroException e) {
+			System.out.println("No se puedo crear el registro. " + e.getMessage());
+		}
+
+		try {
+			reg6 = new Registro(1000, "JuanFrank", 12, '+');
+		} catch (RegistroException e) {
+			System.out.println("No se puedo crear el registro. " + e.getMessage());
 		}
 
 	}
 
-	//
+	public static String asignarPrimas(List<Registro> registros) {
+		StringBuilder result = new StringBuilder();
 
-	public static String asignarPrima(Registro empl) {// cambiar esto para que recorra la lista de empleado e imprima la
-														// prima
+		Iterator<Registro> iterator = registros.iterator();
+		Registro iRegistro;
+
+		while (iterator.hasNext()) {
+			iRegistro = iterator.next();
+			result.append(asignarPrima(iRegistro) + "\n");
+		}
+		return result.toString();
+
+	}
+
+	public static String asignarPrima(Registro empl) {
 		String result = empl.toString();
 		if (empl.getMesesTrabajo() >= 12) {
 			if (empl.getDirectivo() == '+') {
-				result += "prima=P1";
+				result += ", prima=P1";
 			} else {
-				result += "prima=P2";
+				result += ", prima=P2";
 			}
 		} else {
 			if (empl.getDirectivo() == '+') {
-				result += "prima=P3";
+				result += ", prima=P3";
 			} else {
-				result += "prima=P4";
+				result += ", prima=P4";
 			}
 		}
 		return result;

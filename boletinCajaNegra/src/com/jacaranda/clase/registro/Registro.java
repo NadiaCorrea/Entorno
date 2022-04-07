@@ -22,7 +22,7 @@ public class Registro {
 
 	private void setNumEmpleado(int numEmpleado) throws RegistroException {
 		if (numEmpleado <= 0 || numEmpleado > 999) {
-			throw new RegistroException("El número de empleado no puede ser menor o igula que 0 ni mayor que 999.");
+			throw new RegistroException("El número de empleado no puede ser menor o igual que 0 ni mayor que 999.");
 		} else {
 			this.numEmpleado = numEmpleado;
 		}
@@ -36,8 +36,8 @@ public class Registro {
 		if (nombreEmpleado == null) {
 			throw new RegistroException("El nombre del empleado no puede ser nulo");
 		} else {
-			if (nombreEmpleado.length() > 10) {
-				throw new RegistroException("El nombre del empleado no puede tener más de 10 caracteres.");
+			if (nombreEmpleado.length() != 10) {
+				throw new RegistroException("El nombre del empleado debe tener 10 caracteres.");
 			} else {
 				this.nombreEmpleado = nombreEmpleado;
 			}
@@ -88,7 +88,7 @@ public class Registro {
 	@Override
 	public String toString() {
 		return "Registro: numEmpleado=" + numEmpleado + ", nombreEmpleado=" + nombreEmpleado + ", mesesTrabajo="
-				+ mesesTrabajo + ", directivo=" + directivo + " ";
+				+ mesesTrabajo + ", directivo=" + directivo;
 	}
 
 }
