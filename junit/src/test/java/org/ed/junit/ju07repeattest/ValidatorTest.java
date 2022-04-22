@@ -13,7 +13,7 @@ public class ValidatorTest extends TestCase {
 	/**
 	 * Constructor necesario para ejecutar los casos de prueba desde el TestSuite
 	 */
-	public ValidatorTest(String testMethodName) {
+	public ValidatorTest(String testMethodName) {//nombre del metodo a ejecutar
 		super(testMethodName);
 	}
 
@@ -49,14 +49,16 @@ public class ValidatorTest extends TestCase {
 
 	
 	/**
-	 * TestSuite permite crear ejecuciones de pruebas más complejas. En este caso se definen pruebas para los 3 casos anteriores,
-	 * lanzando N ejecuciones de cada uno de ellos. El número de ejecuciones se indica creando un RepeatedTest e indicando el número de 
+	 * TestSuite permite crear ejecuciones de pruebas mï¿½s complejas. En este caso se definen pruebas para los 3 casos anteriores,
+	 * lanzando N ejecuciones de cada uno de ellos. El nï¿½mero de ejecuciones se indica creando un RepeatedTest e indicando el nï¿½mero de 
 	 * ejecuciones
 	 */
 	@Test
 	public static TestSuite suite( ) {
 		TestSuite mySuite = new ActiveTestSuite( );
 		
+		//se meten los casos de prueba que queremos probar con el numero de veces q se quiere probar
+		// para ello tenemos q tener un constructor
 		mySuite.addTest(new RepeatedTest(new ValidatorTest("testIsNumber"),500));
 		mySuite.addTest(new RepeatedTest(new ValidatorTest("testIsText"),100));
 		mySuite.addTest(new RepeatedTest(new ValidatorTest("testIsSomethingElse"),100));
