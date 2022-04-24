@@ -43,7 +43,7 @@ public class MainRegistro {
 		try {
 			reg6 = new Registro(1000, "JuanFrank", 12, '+');
 		} catch (RegistroException e) {
-			System.out.println("No se puedo crear el registro. " + e.getMessage());
+			System.out.println("No se pudo crear el registro. " + e.getMessage());
 		}
 
 	}
@@ -56,27 +56,10 @@ public class MainRegistro {
 
 		while (iterator.hasNext()) {
 			iRegistro = iterator.next();
-			result.append(asignarPrima(iRegistro) + "\n");
+			result.append(iRegistro.toString() + ", prima= " + iRegistro.asignarPrima() + "\n");
 		}
 		return result.toString();
 
 	}
 
-	public static String asignarPrima(Registro empl) {
-		String result = empl.toString();
-		if (empl.getMesesTrabajo() >= 12) {
-			if (empl.getDirectivo() == '+') {
-				result += ", prima=P1";
-			} else {
-				result += ", prima=P2";
-			}
-		} else {
-			if (empl.getDirectivo() == '+') {
-				result += ", prima=P3";
-			} else {
-				result += ", prima=P4";
-			}
-		}
-		return result;
-	}
 }

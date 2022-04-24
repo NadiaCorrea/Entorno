@@ -33,11 +33,11 @@ public class Registro {
 	}
 
 	private void setNombreEmpleado(String nombreEmpleado) throws RegistroException {
-		if (nombreEmpleado == null) {
-			throw new RegistroException("El nombre del empleado no puede ser nulo");
+		if (nombreEmpleado == null || nombreEmpleado.equals("")) {
+			throw new RegistroException("El nombre del empleado no puede ser nulo.");
 		} else {
-			if (nombreEmpleado.length() != 10) {
-				throw new RegistroException("El nombre del empleado debe tener 10 caracteres.");
+			if (nombreEmpleado.length() >= 10) {
+				throw new RegistroException("El nombre del empleado no puede tener más de 10 caracteres.");
 			} else {
 				this.nombreEmpleado = nombreEmpleado;
 			}
@@ -66,6 +66,24 @@ public class Registro {
 		} else {
 			this.directivo = directivo;
 		}
+	}
+
+	public String asignarPrima() {
+		String result = "";
+		if (this.getMesesTrabajo() >= 12) {
+			if (this.getDirectivo() == '+') {
+				result = "P1";
+			} else {
+				result = "P2";
+			}
+		} else {
+			if (this.getDirectivo() == '+') {
+				result = "P3";
+			} else {
+				result = "P4";
+			}
+		}
+		return result;
 	}
 
 	@Override
