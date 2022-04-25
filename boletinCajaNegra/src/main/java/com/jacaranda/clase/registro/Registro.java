@@ -1,4 +1,4 @@
-package com.jacaranda.clase.registro;
+package main.java.com.jacaranda.clase.registro;
 
 import java.util.Objects;
 
@@ -22,7 +22,7 @@ public class Registro {
 
 	private void setNumEmpleado(int numEmpleado) throws RegistroException {
 		if (numEmpleado <= 0 || numEmpleado > 999) {
-			throw new RegistroException("El número de empleado no puede ser menor o igual que 0 ni mayor que 999.");
+			throw new RegistroException("El nï¿½mero de empleado no puede ser menor o igual que 0 ni mayor que 999.");
 		} else {
 			this.numEmpleado = numEmpleado;
 		}
@@ -37,7 +37,7 @@ public class Registro {
 			throw new RegistroException("El nombre del empleado no puede ser nulo.");
 		} else {
 			if (nombreEmpleado.length() >= 10) {
-				throw new RegistroException("El nombre del empleado no puede tener más de 10 caracteres.");
+				throw new RegistroException("El nombre del empleado no puede tener mï¿½s de 10 caracteres.");
 			} else {
 				this.nombreEmpleado = nombreEmpleado;
 			}
@@ -62,7 +62,7 @@ public class Registro {
 
 	private void setDirectivo(char directivo) throws RegistroException {
 		if (directivo != '+' && directivo != '-') {
-			throw new RegistroException("El caracter introducido no es válido.");
+			throw new RegistroException("El caracter introducido no es vï¿½lido.");
 		} else {
 			this.directivo = directivo;
 		}

@@ -1,9 +1,12 @@
-package com.jacaranda.clase.registro;
+package test.java.com.jacaranda.clase.registro;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
+
+import main.java.com.jacaranda.clase.registro.Registro;
+import main.java.com.jacaranda.clase.registro.RegistroException;
 
 class RegistroTest {
 
@@ -54,28 +57,28 @@ class RegistroTest {
 
 	}
 
-	// Prueba Nº empleado valores menores iguales a 0
+	// Prueba Num empleado valores menores iguales a 0
 	@Test
 	public void testNumEmpleadoNegativos() {
 
 		try {
 			Registro registro = new Registro(0, "Juan Frank", 12, '+');
-			fail("ERROR, debería haber lanzado excepción por valor igual menor que 0.");
+			fail("ERROR, deberÃ­a haber lanzado excepciÃ³n por valor igual menor que 0.");
 		} catch (RegistroException e) {
-			System.out.println("Excepción por valores menores igual que 0 tal y como se esperaba: " + e.getMessage());
+			System.out.println("ExcepciÃ³n por valores menores igual que 0 tal y como se esperaba: " + e.getMessage());
 		}
 
 	}
 
-	// Prueba Nº empleado valores positivos pero fuera de rango
+	// Prueba Num empleado valores positivos pero fuera de rango
 	@Test
 	public void testNumEmpleadoPositivosFuera() {
 
 		try {
 			Registro registro = new Registro(1000, "Juan Frank", 12, '+');
-			fail("ERROR, debería haber lanzado excepción por valor mayor que 999.");
+			fail("ERROR, deberÃ­a haber lanzado excepciÃ³n por valor mayor que 999.");
 		} catch (RegistroException e) {
-			System.out.println("Excepción por valores mayores a 999 tal y como se esperaba: " + e.getMessage());
+			System.out.println("ExcepciÃ³n por valores mayores a 999 tal y como se esperaba: " + e.getMessage());
 		}
 
 	}
@@ -87,23 +90,23 @@ class RegistroTest {
 
 		try {
 			Registro registro = new Registro(998, "", 12, '+');
-			fail("ERROR, debería haber lanzado excepción por nombre vacío.");
+			fail("ERROR, deberÃ­a haber lanzado excepciÃ³n por nombre vacÃ­o.");
 		} catch (RegistroException e) {
-			System.out.println("Excepción por nombre vacío tal y como se esperaba: " + e.getMessage());
+			System.out.println("ExcepciÃ³n por nombre vacÃ­o tal y como se esperaba: " + e.getMessage());
 		}
 
 	}
 
-	// Prueba nombre de empleado con extesión superior a la permitida
+	// Prueba nombre de empleado con extesiÃ³n superior a la permitida
 
 	@Test
 	public void testNombreEmpleadoLargo() {
 
 		try {
 			Registro registro = new Registro(998, "Gloria Flor de Maria Morales", 12, '+');
-			fail("ERROR, debería haber lanzado excepción por extensión superior del nombre.");
+			fail("ERROR, deberÃ­a haber lanzado excepciÃ³n por extensiÃ³n superior del nombre.");
 		} catch (RegistroException e) {
-			System.out.println("Excepción por nombre extensión superior tal y como se esperaba: " + e.getMessage());
+			System.out.println("ExcepciÃ³n por nombre extensiÃ³n superior tal y como se esperaba: " + e.getMessage());
 		}
 
 	}
@@ -115,25 +118,25 @@ class RegistroTest {
 
 		try {
 			Registro registro = new Registro(001, "Gloria", -11, '-');
-			fail("ERROR, debería haber lanzado excepción por meses trabajados con valor negativo.");
+			fail("ERROR, deberÃ­a haber lanzado excepciÃ³n por meses trabajados con valor negativo.");
 		} catch (RegistroException e) {
 			System.out.println(
-					"Excepción por por meses trabajados con valor negativo tal y como se esperaba: " + e.getMessage());
+					"ExcepciÃ³n por por meses trabajados con valor negativo tal y como se esperaba: " + e.getMessage());
 		}
 
 	}
 
-	// Prueba meses trabajados con valores positivos no válidos
+	// Prueba meses trabajados con valores positivos no vÃ¡lidos
 
 	@Test
-	public void testMesesTrabajadoPositivosNoValidos() {
+	public void testMesesTrabajadoPositivosNoValidos() {//evitar nombres tan largos 
 
 		try {
 			Registro registro = new Registro(001, "Gloria", 1111, '-');
-			fail("ERROR, debería haber lanzado excepción por meses trabajados con valor positivo no válido.");
+			fail("ERROR, deberÃ­a haber lanzado excepciÃ³n por meses trabajados con valor positivo no vÃ¡lido.");
 		} catch (RegistroException e) {
 			System.out
-					.println("Excepción por por meses trabajados con valor positivo no válido tal y como se esperaba: "
+					.println("ExcepciÃ³n por por meses trabajados con valor positivo no vÃ¡lido tal y como se esperaba: "
 							+ e.getMessage());
 		}
 
@@ -145,21 +148,21 @@ class RegistroTest {
 	public void testDirectivoNoValido() {
 
 		try {
-			Registro registro = new Registro(001, "Gloria", 111, '¡');
-			fail("ERROR, debería haber lanzado excepción por valor de directivo no válido.");
+			Registro registro = new Registro(001, "Gloria", 111, '!');
+			fail("ERROR, deberÃ­a haber lanzado excepciÃ³n por valor de directivo no vÃ¡lido.");
 		} catch (RegistroException e) {
 			System.out.println(
-					"Excepción por por meses trabajados con valor de directivo no válido tal y como se esperaba: "
+					"ExcepciÃ³n por por meses trabajados con valor de directivo no vÃ¡lido tal y como se esperaba: "
 							+ e.getMessage());
 		}
 
 	}
 
 	/*
-	 * • assertEquals: permite comparar dos valores numéricos, incluyendo un margen
-	 * de error. • assertNull / assertNotNull: permite comparar con NULL. •
-	 * assertTrue / assertFalse: permite realizar una comparación lógica. •
-	 * assertSame / assertNotSame: permite comparar la igualdad de objetos. •
+	 * ï¿½ assertEquals: permite comparar dos valores numï¿½ricos, incluyendo un margen
+	 * de error. ï¿½ assertNull / assertNotNull: permite comparar con NULL. ï¿½
+	 * assertTrue / assertFalse: permite realizar una comparaciï¿½n lï¿½gica. ï¿½
+	 * assertSame / assertNotSame: permite comparar la igualdad de objetos. ï¿½
 	 * assertArrayEquals: similar a assertEquals, pero comparando arrays.
 	 */
 }

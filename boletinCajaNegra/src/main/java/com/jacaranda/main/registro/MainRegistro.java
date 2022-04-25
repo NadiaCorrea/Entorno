@@ -1,11 +1,13 @@
-package com.jacaranda.main.registro;
+package main.java.com.jacaranda.main.registro;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.jacaranda.clase.registro.Registro;
-import com.jacaranda.clase.registro.RegistroException;
+import main.java.com.jacaranda.clase.registro.Registro;
+import main.java.com.jacaranda.clase.registro.RegistroException;
+
+
 
 public class MainRegistro {
 

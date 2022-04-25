@@ -1,4 +1,4 @@
-package com.jacaranda.clase.registro;
+package main.java.com.jacaranda.clase.registro;
 
 public class RegistroException extends Exception {
 
